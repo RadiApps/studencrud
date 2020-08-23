@@ -1,0 +1,24 @@
+<p>  &nbsp; person-list works!</p>
+
+<!-- <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users"
+        [class.active]="currentId === user.id"
+        [style.backgroundColor]="currentId === user.id ? 'red':'gray'">
+        Name  :  {{  user.name + ' , '+ user.email}}
+    </li>
+  </ul> -->
+
+<!-- <div *ngFor="let user of users">
+    <h2>Name  :  + {{  user.name }}</h2>
+    <h3>{{ 'Email : ' + user.email }}</h3>
+    <p>{{ 'Address : '+ user.address.street +' - '+ user.address.suite + ' - '+user.address.city  }}</p>    
+</div> -->
+
+<div>&nbsp; {{ item.title | uppercase | lowercase}}</div>
+<div>&nbsp; {{ item.price | currency: 'EGP' : true : '4.1-1' }}</div>
+<div>&nbsp; {{ item.sold | number: '4.1-1'}}</div>
+<div>&nbsp; {{ item.rating | number: '2.1-2'}}</div>
+<div>&nbsp; {{ item.date | date :'dd/MM/yyyy'}}</div>
+<br/>
+Pipe Transform
+<div> {{ postDescription | summary }} </div>
