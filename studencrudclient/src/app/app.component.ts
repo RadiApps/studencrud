@@ -28,7 +28,6 @@ export class AppComponent {
   handleBtnClick(e){
     // to uncall the upper events
     //e.stopPropagation();
-    alert(" Button Clicked"+ e);
     console.log(" Button Clicked",e)
   }
   handleDivClick(){
