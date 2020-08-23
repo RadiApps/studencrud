@@ -1,1 +1,1 @@
-# HackerRank-Statistics
+# Student CRUD client
