@@ -1,6 +1,37 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+    providedIn: 'root'
+  })
+
 
 export class PersonService {
-  getPerson(){
-    return ['Person 1','Person 2','Person 3'];
-  }
+ 
+    private baseUrl = 'http://localhost:8100/api/person';
+    constructor(private http: HttpClient){
+
+    }
+    getPerson(id: number): Observable<any> {
+        return this.http.get(`${this.baseUrl}/${id}`);
+    }
+    
+    createPerson(person: Object): Observable<Object> {
+        return this.http.post(`${this.baseUrl}`, person);
+    }
+
+    updatePerson(id: number, value: any): Observable<Object> {
+     return this.http.put(`${this.baseUrl}/${id}`, value);
+    }
+
+    deletePerson(id: number): Observable<any> {
+        return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    }
+
+    getPersonsList(): Observable<any> {
+     return this.http.get(`${this.baseUrl}`);
+    }
+
+
 }

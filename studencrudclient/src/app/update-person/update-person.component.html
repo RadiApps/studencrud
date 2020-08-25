@@ -1,20 +1,19 @@
-<h3>Create Person</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<h3>Update Person</h3>
+<div style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
-
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" id="firstName" required [(ngModel)]="person.fname" name="firstName">
     </div>
 
     <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" required [(ngModel)]="person.lname" name="lastName">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="person.lname" name="lastName">
     </div>
 
     <div class="form-group">
         <label for="personType">Person Type</label>
-        <select  class="form-control" id="personType" required [(ngModel)]="person.personType" name="personType" >
+        <select  class="form-control" id="personType" required [(ngModel)]="person.personType" name="personType">
             <option value="0" selected>Select Person Type</option>
             <option value="1" >Student</option>
             <option value="2" >Teacher</option>
@@ -33,7 +32,7 @@
 
     <div class="form-group">
         <label for="gender">Gender</label>
-        <select  class="form-control" id="gender" required [(ngModel)]="person.gender" name="gender" >
+        <select  class="form-control" id="gender" required [(ngModel)]="person.gender" name="gender">
             <option value="0" selected>Select Gender</option>
             <option value="1" >Male</option>
             <option value="2" >Female</option>
@@ -65,11 +64,8 @@
         <label for="password">Password</label>
         <input type="text" class="form-control" id="password" required [(ngModel)]="person.password" name="password">
       </div>
+
+
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
 </div>

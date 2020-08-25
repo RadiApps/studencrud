@@ -2,8 +2,10 @@ package in.app.onlineassisment.controller;
 
 import java.net.URI;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,7 @@ import in.app.onlineassisment.model.Person;
 import in.app.onlineassisment.service.PersonService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class PersonController {
 
@@ -35,6 +38,8 @@ public class PersonController {
 		Person p= personService.getById(id);
 		if(p == null)
 			throw new UserNotFoundException("Person id: "+id+" is not found");
+		
+		
 		
 		return p;
 	}

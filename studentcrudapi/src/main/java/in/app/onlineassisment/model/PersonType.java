@@ -26,7 +26,8 @@ public class PersonType  {
 	public PersonType(String personTypeName) {
 		this.personTypeName = personTypeName;
 	}
-
+	
+	
 	@Id
 	@Column(name = "ID", unique = true, nullable = false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	

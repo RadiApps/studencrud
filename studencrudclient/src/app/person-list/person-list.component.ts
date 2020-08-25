@@ -1,39 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Person } from '../model/Person';
+import { PersonType } from '../model/PersonType';
 import { PersonService } from '../services/person.service';
-import { UsersService } from '../services/users.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'person-list',
   templateUrl: './person-list.component.html',
   styleUrls: ['./person-list.component.css']
 })
-export class PersonListComponent {
-  currentId= 3; 
-  users: any[];
-  postDescription =`Thank you for contacting us This is an automated response confirming the receipt of your ticket. One of our agents will 
-                    get back to you as soon as possible
-                    Ticket ID: AD-821-49025
-                    Subject: 31300092809
-                    Department: Support.kw`
-  item={
-    title: 'HP Screen',
-    price: 2199.99,
-    sold : 4531,
-    rating:4.7655,
-    date: new Date()
-  }
+export class PersonListComponent implements OnInit {
+  persons: Observable<Person[]>
+  constructor(private personService: PersonService, 
+    private router: Router ) {     
 
-  constructor(userService: UsersService ) {
-      userService.getUsers().subscribe(res => {
-        this.users = res;
-        console.log(res);
-      },err => {
-        console.log(err);
-      })
   }
 
   ngOnInit(): void {
+    this.reloadData();
+  }
+  reloadData(){
+    this.persons = this.personService.getPersonsList();
+  }
+  deletePerson(id: number){
+    this.personService.deletePerson(id).subscribe(
+      data => {
+        console.log(data);
+        this.reloadData(); 
+      },error => {
+        console.log(error);
+      } )
   }
 
+  personDetails(id: number){
+    this.router.navigate(['details',id]);
+  }
 
 }

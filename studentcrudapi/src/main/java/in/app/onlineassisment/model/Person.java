@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -59,6 +60,11 @@ public class Person  {
 	}
 
 	
+	@PrePersist
+	protected void onCreate() {
+	    if (createdDate == null) { createdDate = new Date(); }
+	}
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "person_generator")
@@ -88,7 +94,7 @@ public class Person  {
 		this.personType = personType;
 	}
 
-	@Column(name = "STUDENT_CODE", nullable = false)
+	@Column(name = "STUDENT_CODE", nullable = true)
 	public int getStudentCode() {
 		return this.studentCode;
 	}
@@ -181,7 +187,7 @@ public class Person  {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATED_DATE", length = 19 , nullable = false)
+	@Column(name = "CREATED_DATE", length = 19 , insertable = false  )
 	public Date getCreatedDate() {
 		return this.createdDate;
 	}
@@ -190,6 +196,6 @@ public class Person  {
 		this.createdDate = createdDate;
 	}
 
-	
+
 
 }

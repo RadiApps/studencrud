@@ -1,1 +1,39 @@
-<p>person-details works!</p>
+<h2>Person Details</h2> 
+
+<hr/>
+<div *ngIf="person">
+  <div>
+    <label><b>First Name: </b></label> {{person.fname}}
+  </div>
+  <div>
+    <label><b>Last Name: </b></label> {{person.lname}}
+  </div>
+  <div>
+    <label><b>Person Type: </b></label> {{person.personType}}
+  </div>
+  <div>
+    <label><b>Student Code: </b></label> {{person.studentCode}}
+  </div>
+  <div>
+    <label><b>Phone Number: </b></label> {{person.phoneNumber}}
+  </div>
+  <div>
+    <label><b>Gender: </b></label> {{person.gender}}
+  </div>
+  <div>
+    <label><b>Is User: </b></label> {{person.isUser}}
+  </div>
+  <div>
+    <label><b>Grade Year: </b></label> {{person.gradeYear}}
+  </div>
+  <div>
+    <label><b>Birth Date: </b></label> {{person.birthDate}}
+  </div>
+  <div>
+    <label><b>Email Id: </b></label> {{person.email}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Person List</button><br>
