@@ -7,8 +7,8 @@ export class Person{
     studentCode: number;
     fname: string;
     lname: string;
-    gender: boolean;
-    isUser: boolean;
+    gender: number;
+    isUser: string;
     gradeYear: number;
     email: string;
     password: string;

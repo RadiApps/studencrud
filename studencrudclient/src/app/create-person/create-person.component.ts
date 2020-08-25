@@ -5,7 +5,7 @@ import { PersonService } from '../services/person.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-person',
+  selector: 'create-person',
   templateUrl: './create-person.component.html',
   styleUrls: ['./create-person.component.css']
 })
@@ -47,5 +47,8 @@ export class CreatePersonComponent implements OnInit {
   }
   gotoList(){
     this.router.navigate(['/persons']);
+  }
+  OnChangePersonType(){
+    
   }
 }

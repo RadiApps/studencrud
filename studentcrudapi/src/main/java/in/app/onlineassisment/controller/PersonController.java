@@ -53,11 +53,16 @@ public class PersonController {
 	}	
 	
 	@PostMapping("/person")
-	public ResponseEntity<Object> save(@RequestBody Person p) {
+	public Person save( @RequestBody Person p) {
 		personService.save(p);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(p.getId())
-				.toUri();
-		return ResponseEntity.created(uri).build();	
+		if(p.getId() > 0)
+			return personService.getById(p.getId());
+		else 
+			return null;
+		
+		//URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(p.getId())
+			//	.toUri();
+		//return ResponseEntity.created(uri).build();	
 	}
 	
 	@PutMapping("/person/{id}")
