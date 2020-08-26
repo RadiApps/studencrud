@@ -69,8 +69,8 @@ public class PersonServiceImpl implements PersonService {
 			p.setEmail(updated.getEmail());
 		if(updated.getPassword() != null)
 			p.setPassword(updated.getPassword());
-		if(updated.getPhoneNum() != null)
-			p.setPhoneNum(updated.getPhoneNum());
+		if(updated.getPhoneNumber() != null)
+			p.setPhoneNumber(updated.getPhoneNumber());
 		if(updated.getBirthDate() != null)
 			p.setBirthDate(updated.getBirthDate());
 		if(updated.getCreatedDate() != null)

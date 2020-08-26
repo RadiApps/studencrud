@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular 8 + Spring Boot 2 CRUD Tutorial';
+  title = '';
   constructor( ) {  
   }
 }

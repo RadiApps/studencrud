@@ -14,8 +14,8 @@
 
     <div class="form-group">
         <label for="personType">Person Type</label>
-        <select  class="form-control" id="personType" required [(ngModel)]="person.personType" name="personType" >
-            <option value="0" selected>Select Person Type</option>
+        <select  class="form-control" id="personType"  required  #personType name="personType"  (change)="OnChangePersonType(personType)" >
+            <option value="0" [selected]>Select Person Type</option>
             <option value="1" >Student</option>
             <option value="2" >Teacher</option>
         </select>
@@ -33,7 +33,7 @@
 
     <div class="form-group">
         <label for="gender">Gender</label>
-        <select  class="form-control" id="gender" required [(ngModel)]="person.gender" name="gender" >
+        <select  class="form-control" id="gender" required #gender (change) ="OnChangeGender(gender)" name="gender" >
             <option value="0" selected>Select Gender</option>
             <option value="1" >Male</option>
             <option value="2" >Female</option>
@@ -43,7 +43,7 @@
 
     <div class="form-group">
         <label for="isUser">Is User</label>
-        <input type="text" class="form-control" id="isUser" required [(ngModel)]="person.isUser" name="isUser">isUser
+        <input type="text" class="form-control" id="isUser" required [(ngModel)]="person.isUser" name="isUser">
     </div>
 
     <div class="form-group">

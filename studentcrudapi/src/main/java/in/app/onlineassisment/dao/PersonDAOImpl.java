@@ -33,6 +33,8 @@ public class PersonDAOImpl implements PersonDAO {
 	public Person getById(int id) {
 		Session currentSession=entityManager.unwrap(Session.class);
 		Person p=currentSession.get(Person.class, id);
+		if(p != null)
+			Hibernate.initialize(p.getPersonType());
 		return p;
 	}
 

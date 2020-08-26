@@ -38,7 +38,9 @@ export class CreatePersonComponent implements OnInit {
       this.personType = new PersonType();
       this.gotoList();
     }, 
-    error => console.log(error));
+    error => {
+      console.log(error);
+    });
   }
 
    onSubmit() {
@@ -47,8 +49,26 @@ export class CreatePersonComponent implements OnInit {
   }
   gotoList(){
     this.router.navigate(['/persons']);
+  };
+  OnChangePersonType(e){
+    debugger;
+    console.log(e);
+    if(e != '0'){
+       this.personType.id = Number(e.value);
+       this.personType.personTypeName = e.options[e.selectedIndex].text;
+       this.person.personType = this.personType;
+    }else{
+      this.personType = new PersonType();
+      this.person.personType=this.personType;
+    }
   }
-  OnChangePersonType(){
+  OnChangeGender(e){
+    debugger;
+    if(e != '0'){
+      this.person.gender = Number(e.value);
+    }else{
+      this.person.gender = null;
+    }
     
   }
 }

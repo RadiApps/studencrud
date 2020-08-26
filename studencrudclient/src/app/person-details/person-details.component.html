@@ -9,7 +9,7 @@
     <label><b>Last Name: </b></label> {{person.lname}}
   </div>
   <div>
-    <label><b>Person Type: </b></label> {{person.personType}}
+    <label><b>Person Type: </b></label> {{personType.personTypeName}}
   </div>
   <div>
     <label><b>Student Code: </b></label> {{person.studentCode}}
@@ -18,7 +18,7 @@
     <label><b>Phone Number: </b></label> {{person.phoneNumber}}
   </div>
   <div>
-    <label><b>Gender: </b></label> {{person.gender}}
+    <label><b>Gender: </b></label> {{gender}}
   </div>
   <div>
     <label><b>Is User: </b></label> {{person.isUser}}
@@ -27,10 +27,10 @@
     <label><b>Grade Year: </b></label> {{person.gradeYear}}
   </div>
   <div>
-    <label><b>Birth Date: </b></label> {{person.birthDate}}
+    <label><b>Birth Date: </b></label> {{person.birthDate | date }}
   </div>
   <div>
-    <label><b>Email Id: </b></label> {{person.email}}
+    <label><b>Email: </b></label> {{person.email}}
   </div>  
 </div>
 

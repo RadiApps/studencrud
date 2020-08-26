@@ -1,4 +1,4 @@
-package in.radyapps.sbootstudcrud.studentcrudapi;
+package in.app.onlineassisment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

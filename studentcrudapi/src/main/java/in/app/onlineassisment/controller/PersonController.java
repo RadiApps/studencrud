@@ -37,10 +37,8 @@ public class PersonController {
 	public Person getPersonById(@PathVariable int id) {
 		Person p= personService.getById(id);
 		if(p == null)
-			throw new UserNotFoundException("Person id: "+id+" is not found");
-		
-		
-		
+			throw new UserNotFoundException("Person id: "+id+" is not found");	
+				
 		return p;
 	}
 	
@@ -53,16 +51,11 @@ public class PersonController {
 	}	
 	
 	@PostMapping("/person")
-	public Person save( @RequestBody Person p) {
+	public ResponseEntity<Object> save( @RequestBody Person p) {
 		personService.save(p);
-		if(p.getId() > 0)
-			return personService.getById(p.getId());
-		else 
-			return null;
-		
-		//URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(p.getId())
-			//	.toUri();
-		//return ResponseEntity.created(uri).build();	
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(p.getId())
+				.toUri();
+		return ResponseEntity.created(uri).build();	
 	}
 	
 	@PutMapping("/person/{id}")
