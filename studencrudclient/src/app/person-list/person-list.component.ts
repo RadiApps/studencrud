@@ -25,13 +25,18 @@ export class PersonListComponent implements OnInit {
     this.persons = this.personService.getPersonsList();
   }
   deletePerson(id: number){
-    this.personService.deletePerson(id).subscribe(
-      data => {
-        console.log(data);
-        this.reloadData(); 
-      },error => {
-        console.log(error);
-      } )
+    if(confirm("Are you sure to delete this person!")){
+      this.personService.deletePerson(id).subscribe(
+        data => {
+          console.log(data);
+          this.reloadData(); 
+        },error => {
+          console.log(error);
+        } )
+    }
+  }
+  updatePerson(id: number,p: any){
+    this.router.navigate(['update',id]);
   }
 
   personDetails(id: number){

@@ -59,7 +59,7 @@ public class PersonController {
 	}
 	
 	@PutMapping("/person/{id}")
-	public ResponseEntity<Object> updatePerson(@RequestBody Person p, @PathVariable int id) {
+	public ResponseEntity<Object> updatePerson(@PathVariable int id,@RequestBody Person p ) {
 		Person pOptional = personService.getById(id);
 		if (pOptional == null)
 			return ResponseEntity.notFound().build();

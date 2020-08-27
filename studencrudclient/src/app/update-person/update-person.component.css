@@ -1,0 +1,10 @@
+.isUserCheckClass{
+    display: inline-flex;
+    width: 100%;
+};
+div  label{
+    width: 50% !important;   
+};
+.isUserCheckClass input{
+    width: 50% !important;
+}

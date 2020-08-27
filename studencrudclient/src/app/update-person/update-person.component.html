@@ -13,10 +13,10 @@
 
     <div class="form-group">
         <label for="personType">Person Type</label>
-        <select  class="form-control" id="personType" required [(ngModel)]="person.personType" name="personType">
-            <option value="0" selected>Select Person Type</option>
-            <option value="1" >Student</option>
-            <option value="2" >Teacher</option>
+        <select  class="form-control" id="personType" required [(ngModel)]="personType.id" name="personType">
+            <option value="0" [selected]="personType == null">Select Person Type</option>
+            <option value="1" [selected]="personType.id == 1" >Student</option>
+            <option value="2" [selected]="personType.id == 2" >Teacher</option>
         </select>
     </div>
 
@@ -33,16 +33,16 @@
     <div class="form-group">
         <label for="gender">Gender</label>
         <select  class="form-control" id="gender" required [(ngModel)]="person.gender" name="gender">
-            <option value="0" selected>Select Gender</option>
-            <option value="1" >Male</option>
-            <option value="2" >Female</option>
-            <option value="3" >Others</option>
+            <option value="0" [selected]="person.gender == 0" >Select Gender</option>
+            <option value="1" [selected]="person.gender == 1" >Male</option>
+            <option value="2" [selected]="person.gender == 2" >Female</option>
+            <option value="3" [selected]="person.gender == 3" >Others</option>
         </select>
     </div>
 
     <div class="form-group">
-        <label for="isUser">Is User</label>
-        <input type="checkbox" class="form-control" id="isUser" required [(ngModel)]="person.isUser" name="isUser">isUser
+        <label for="isUser">Is User  <input type="checkbox" class="form-control" id="isUser" required [(ngModel)]="person.isUser" name="isUser"></label>
+       
     </div>
 
     <div class="form-group">
@@ -52,7 +52,8 @@
 
     <div class="form-group">
         <label for="birthDate">Birth Date</label>
-        <input type="date" class="form-control" id="birthDate" required [(ngModel)]="person.birthDate" name="birthDate">
+        <input type="date" class="form-control" id="birthDate" required  [ngModel]="person.birthDate|date: 'MMM d, y'"  date="MMM d, y" 
+           name="birthDate" value="person.birthDate" >
     </div>
 
     <div class="form-group">

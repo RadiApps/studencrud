@@ -15,14 +15,10 @@ export class CreatePersonComponent implements OnInit {
   personType: PersonType = new PersonType();
   submitted = false;
 
-
   constructor(private personService: PersonService,
-      private router: Router) {
+      private router: Router) { }
 
-       }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   newPerson(): void {
     this.submitted = false;
@@ -42,8 +38,9 @@ export class CreatePersonComponent implements OnInit {
       console.log(error);
     });
   }
-
-   onSubmit() {
+   
+  onSubmit() {
+    
     this.submitted = true;
     this.save();    
   }
@@ -51,7 +48,6 @@ export class CreatePersonComponent implements OnInit {
     this.router.navigate(['/persons']);
   };
   OnChangePersonType(e){
-    debugger;
     console.log(e);
     if(e != '0'){
        this.personType.id = Number(e.value);
@@ -63,7 +59,6 @@ export class CreatePersonComponent implements OnInit {
     }
   }
   OnChangeGender(e){
-    debugger;
     if(e != '0'){
       this.person.gender = Number(e.value);
     }else{

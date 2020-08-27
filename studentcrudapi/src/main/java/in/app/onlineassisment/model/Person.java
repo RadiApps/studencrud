@@ -84,7 +84,7 @@ public class Person  {
 		this.personType = personType;
 	}
 
-	@Column(name = "STUDENT_CODE", nullable = true)
+	@Column(name = "STUDENT_CODE")
 	public int getStudentCode() {
 		return this.studentCode;
 	}
@@ -147,7 +147,7 @@ public class Person  {
 		this.email = email;
 	}
 
-	@Column(name = "PASSWORD", nullable = false, length = 50)
+	@Column(name = "PASSWORD", length = 50)
 	public String getPassword() {
 		return this.password;
 	}
